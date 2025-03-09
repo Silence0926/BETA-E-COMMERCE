@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHOPPING CART</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <div class="logo">VONGOLA</div>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="cart.html">CAR</a>
+            <a href="login.html">LOGIN</a>
+        </nav>
+        <input type="text" id="search" placeholder="SEARCH">
+    </header>
+
+    <main>
+        <h1>SHOPPING CART</h1>
+        <div id="cart-items"></div>
+
+        <!-- 显示总价 -->
+        <h2>Total: RM <span id="total-price">0.00</span></h2>
+
+        <!-- 结算按钮 -->
+        <button id="checkout-btn">CHECKOUT</button>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 电子商店. 保留所有权利.</p>
+    </footer>
+
+    <script>
+        function loadCart() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let cartItemsDiv = document.getElementById("cart-items");
+            let totalPrice = 0;
+
+            cartItemsDiv.innerHTML = "";
+
+            cart.forEach((item, index) => {
+                let itemDiv = document.createElement("div");
+                itemDiv.classList.add("cart-item");
+                itemDiv.innerHTML = `
+                    <p>${item.name} - RM${item.price.toFixed(2)}</p>
+                    <p>Quantity: <button onclick="updateQuantity(${index}, -1)">-</button> ${item.quantity} <button onclick="updateQuantity(${index}, 1)">+</button></p>
+                    <button onclick="removeItem(${index})">REMOVE</button>
+                `;
+                cartItemsDiv.appendChild(itemDiv);
+                totalPrice += item.price * item.quantity;
+            });
+
+            document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+        }
+
+        function updateQuantity(index, change) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+            } else {
+                cart.splice(index, 1);
+            }
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
+
+        function removeItem(index) {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart.splice(index, 1);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            loadCart();
+        }
+
+        document.getElementById("checkout-btn").addEventListener("click", function() {
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            if (cart.length === 0) {
+                alert("Your cart is empty!");
+            } else {
+                localStorage.setItem("total-price", document.getElementById("total-price").innerText);
+                window.location.href = "checkout.html";
+            }
+        });
+
+        loadCart();
+    </script>
+</body>
+</html>
