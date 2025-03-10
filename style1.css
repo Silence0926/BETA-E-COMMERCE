@@ -63,56 +63,35 @@ h1 {
     color: #333;
 }
 
-/* 购物车样式 */
-.cart-item {
+/* 商品展示 */
+.product-list {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.product {
+    background: #fff;
     padding: 15px;
-    border-bottom: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
 }
 
-.cart-item p {
-    margin: 0;
+.product:hover {
+    transform: scale(1.05);
 }
 
-.cart-item .quantity-controls {
-    display: flex;
-    align-items: center;
+.product img {
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    margin-bottom: 10px;
 }
 
-.cart-item button {
-    background: linear-gradient(180deg, #0056b3, #007bff);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.cart-item button:hover {
-    background: linear-gradient(180deg, #004494, #0056b3);
-    transform: scale(1.1);
-}
-
-.remove-item {
-    background: linear-gradient(180deg, red, darkred);
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-}
-
-.remove-item:hover {
-    background: linear-gradient(180deg, darkred, red);
-    transform: scale(1.1);
-}
-
+/* 购物车样式 */
 button {
     display: inline-block;
     padding: 12px 20px;
