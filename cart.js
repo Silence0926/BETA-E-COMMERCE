@@ -12,7 +12,13 @@ function updateCartUI() {
             let itemElement = document.createElement("div");
             itemElement.classList.add("cart-item");
             itemElement.innerHTML = `
-                <p>${item.name} - RM${item.price.toFixed(2)} x ${item.quantity}</p>
+                <img src="${item.image}" alt="${item.name}" class="cart-item-img">
+                <p>${item.name} - RM${item.price.toFixed(2)}</p>
+                <p>Quantity: 
+                    <button onclick="updateQuantity(${index}, -1)">-</button> 
+                    ${item.quantity} 
+                    <button onclick="updateQuantity(${index}, 1)">+</button>
+                </p>
                 <button onclick="removeFromCart(${index})">❌ 移除</button>
             `;
             cartContainer.appendChild(itemElement);
@@ -20,7 +26,34 @@ function updateCartUI() {
         });
     }
     
-    document.getElementById("total-price").innerText = `总价: RM${totalPrice.toFixed(2)}`;
+    document.getElementById("total-price").innerText = totalPrice.toFixed(2);
+}
+
+// 添加商品到购物车
+function addToCart(name, price, image) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    let existingItem = cart.find(item => item.name === name);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ name, price, quantity: 1, image });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("已添加到购物车！");
+}
+
+// 更新商品数量
+function updateQuantity(index, change) {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart[index].quantity + change > 0) {
+        cart[index].quantity += change;
+    } else {
+        cart.splice(index, 1);
+    }
+    localStorage.setItem("cart", JSON.stringify(cart));
+    updateCartUI();
 }
 
 // 从购物车移除商品
@@ -28,12 +61,6 @@ function removeFromCart(index) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     cart.splice(index, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
-    updateCartUI();
-}
-
-// 清空购物车
-function clearCart() {
-    localStorage.removeItem("cart");
     updateCartUI();
 }
 
