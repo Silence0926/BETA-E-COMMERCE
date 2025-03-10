@@ -155,3 +155,25 @@ footer {
     50% { text-shadow: 0 0 15px gold; }
     100% { text-shadow: 0 0 5px gold; }
 }
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cart-item-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+}
+
+.cart-item-details p {
+    margin: 5px 0;
+}
