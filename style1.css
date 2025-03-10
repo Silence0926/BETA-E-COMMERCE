@@ -1,61 +1,105 @@
-/* 全局样式 */
+/* 🌟 1. 颜色主题 */
 :root {
-    --primary-color: #007bff;
-    --secondary-color: #6c757d;
-    --background-color: #f8f9fa;
-    --text-color: #212529;
-    --border-radius: 8px;
+  --primary-color: #007bff; /* 蓝色 */
+  --secondary-color: #000000; /* 黑色 */
+  --background-color: #ffffff; /* 白色 */
+  --accent-color: #d4af37; /* 金色 */
+  --text-color: #333333;
 }
 
+/* 🌟 2. 全局样式 */
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 }
 
-/* 按钮样式 */
+/* 🌟 3. 头部导航栏 */
+nav {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* 🌟 4. 按钮美化 */
 button {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    transition: background 0.3s ease;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
+/* 悬停 & 点击效果 */
 button:hover {
-    background-color: darken(var(--primary-color), 10%);
+  background-color: var(--accent-color);
+  color: black;
 }
 
-/* 表单样式 */
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid var(--secondary-color);
-    border-radius: var(--border-radius);
+button:active {
+  transform: scale(0.95);
 }
 
-/* 购物车样式 */
-.cart-container {
-    max-width: 800px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: var(--border-radius);
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+/* 🌟 5. 加载动画 */
+@keyframes loading {
+  0% { opacity: 0.5; }
+  50% { opacity: 1; }
+  100% { opacity: 0.5; }
 }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .cart-container {
-        width: 90%;
-        padding: 15px;
-    }
-    button {
-        width: 100%;
-    }
+.loading-animation {
+  animation: loading 1s infinite;
+}
+
+/* 🌟 6. 购物车 UI 优化 */
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.cart-item .item-details {
+  flex-grow: 1;
+}
+
+.cart-total {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+/* 🌟 7. 结账页面优化 */
+.checkout-steps {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.step {
+  flex: 1;
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border-bottom: 4px solid #ddd;
+}
+
+.step.active {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
