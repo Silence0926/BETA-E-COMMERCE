@@ -129,10 +129,11 @@ footer {
 
 /* 家徽图片 */
 .logo-img {
-    width: 40px; /* 你可以调整大小 */
-    height: 40px;
-    border-radius: 10px; /* 让图片更平滑 */
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
 }
+
 
 /* VONGOLA 文字样式 */
 .logo-text {
