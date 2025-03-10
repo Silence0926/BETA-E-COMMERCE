@@ -1,62 +1,143 @@
-/* 🌟 1. 统一的全局颜色 */
-:root {
-    --primary-color: #0044cc;
-    --secondary-color: #f5c518;
-    --background-color: #f8f8f8;
-    --text-color: #333;
-    --card-bg: white;
-}
-
-/* 🌟 2. 更优雅的字体 */
+/* 基本样式 */
 body {
-    font-family: "Poppins", sans-serif;
-    background: var(--background-color);
-    color: var(--text-color);
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    background: linear-gradient(180deg, #ffffff, #f8f9fa);
+    animation: backgroundAnimation 10s infinite alternate;
 }
 
-/* 🌟 3. 卡片样式 */
-.product, .cart-item {
-    background: var(--card-bg);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(180deg, #ffffff, #f8f9fa); }
+    100% { background: linear-gradient(180deg, #f8f9fa, #ffffff); }
+}
+
+/* 头部导航栏 */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #000000, #333333);
+    animation: navAnimation 5s infinite alternate;
+    color: white;
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes navAnimation {
+    0% { background: linear-gradient(90deg, #000000, #333333); }
+    100% { background: linear-gradient(90deg, #333333, #000000); }
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
     transition: transform 0.3s ease-in-out;
 }
 
-.product:hover, .cart-item:hover {
-    transform: scale(1.05);
+nav a:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 
-/* 🌟 4. 按钮更现代 */
-button {
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    border: none;
+/* 主体部分 */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+/* 购物车样式 */
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 2px solid #ddd;
+}
+
+.cart-item p {
+    margin: 0;
+}
+
+.cart-item .quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.cart-item button {
+    background: linear-gradient(180deg, #0056b3, #007bff);
     color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
+    border: none;
+    padding: 8px 12px;
     cursor: pointer;
-    transition: 0.3s;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.cart-item button:hover {
+    background: linear-gradient(180deg, #004494, #0056b3);
+    transform: scale(1.1);
+}
+
+.remove-item {
+    background: linear-gradient(180deg, red, darkred);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.remove-item:hover {
+    background: linear-gradient(180deg, darkred, red);
+    transform: scale(1.1);
+}
+
+button {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 15px 0;
+    border: none;
+    background: linear-gradient(180deg, #28a745, #218838);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
-    transform: translateY(-2px);
+    background: linear-gradient(180deg, #218838, #28a745);
+    transform: scale(1.1);
 }
 
-/* 🌟 5. 输入框优化 */
-input[type="text"], input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid var(--primary-color);
-    border-radius: 5px;
-}
-
-/* 🌟 6. 购物车页面的商品图片 */
-.cart-item img {
-    width: 80px;
-    height: 80px;
-    border-radius: 10px;
-    object-fit: cover;
+/* 页脚 */
+footer {
+    text-align: center;
+    padding: 15px;
+    background: #343a40;
+    color: white;
+    margin-top: 40px;
 }
