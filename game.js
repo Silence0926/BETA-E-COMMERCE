@@ -1,3 +1,4 @@
+let isGameRunning = false; // ✅ 提前初始化变量
 function startGame() {
     if (!isGameRunning) {
         isGameRunning = true;
