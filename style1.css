@@ -1,179 +1,103 @@
-/* 基本样式 */
 body {
     font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background: linear-gradient(180deg, #ffffff, #f8f9fa);
-    animation: backgroundAnimation 10s infinite alternate;
 }
 
-@keyframes backgroundAnimation {
-    0% { background: linear-gradient(180deg, #ffffff, #f8f9fa); }
-    100% { background: linear-gradient(180deg, #f8f9fa, #ffffff); }
-}
-
-/* 头部导航栏 */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(90deg, #000000, #333333);
-    animation: navAnimation 5s infinite alternate;
-    color: white;
-    padding: 10px 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-@keyframes navAnimation {
-    0% { background: linear-gradient(90deg, #000000, #333333); }
-    100% { background: linear-gradient(90deg, #333333, #000000); }
+    background: black;
+    padding: 10px;
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text {
     font-size: 24px;
-    font-weight: bold;
+    color: gold;
 }
 
 nav a {
     color: white;
     text-decoration: none;
     margin: 0 15px;
-    font-size: 18px;
-    transition: transform 0.3s ease-in-out;
 }
 
-nav a:hover {
-    transform: scale(1.1);
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-/* 主体部分 */
 main {
-    max-width: 900px;
-    margin: 40px auto;
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     text-align: center;
+    padding: 20px;
 }
 
-h1 {
-    color: #333;
-}
-
-/* 商品展示 */
 .product-list {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .product {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease-in-out;
-    text-align: center;
-}
-
-.product:hover {
-    transform: scale(1.05);
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .product img {
     width: 150px;
     height: 150px;
-    border-radius: 10px;
-    margin-bottom: 10px;
 }
 
-/* 购物车样式 */
-button {
-    display: inline-block;
-    padding: 12px 20px;
-    margin: 15px 0;
+.add-to-cart {
+    background-color: blue;
+    color: white;
+    padding: 5px 10px;
     border: none;
-    background: linear-gradient(180deg, #28a745, #218838);
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
     cursor: pointer;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-button:hover {
-    background: linear-gradient(180deg, #218838, #28a745);
-    transform: scale(1.1);
-}
-
-/* 页脚 */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: #343a40;
-    color: white;
-    margin-top: 40px;
-}
-/* LOGO 容器 */
-.logo {
+#cart-items {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 15px;
 }
 
-/* 家徽图片 */
-.logo-img {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 10px !important;
-}
-
-
-/* VONGOLA 文字样式 */
-.logo-text {
-    font-family: 'Cinzel', serif; /* 或 'Playfair Display' */
-    font-size: 32px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    background: linear-gradient(45deg, gold, orange);
-    -webkit-background-clip: text;
-    color: transparent;
-    text-shadow: 2px 2px 5px rgba(255, 215, 0, 0.8);
-    animation: glow 2s infinite alternate;
-}
-
-/* 动态光晕效果 */
-@keyframes glow {
-    0% { text-shadow: 0 0 5px gold; }
-    50% { text-shadow: 0 0 15px gold; }
-    100% { text-shadow: 0 0 5px gold; }
-}
 .cart-item {
+    background: white;
+    padding: 10px;
+    margin: 10px;
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
+    gap: 10px;
 }
 
-.cart-item-img {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 5px;
+button {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
 }
 
-.cart-item-details {
-    flex-grow: 1;
+button.increase, button.decrease {
+    background-color: gray;
+    color: white;
 }
 
-.cart-item-details p {
-    margin: 5px 0;
+button.remove-item {
+    background-color: red;
+    color: white;
+}
+
+#checkout {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
 }
