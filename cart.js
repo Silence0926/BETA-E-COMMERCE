@@ -23,18 +23,35 @@ document.addEventListener("DOMContentLoaded", function () {
             total += item.price * item.quantity;
         });
 
-        totalPriceElement.innerText = total.toFixed(2);
+        // **总价更新动画**
+        totalPriceElement.style.transition = "color 0.3s ease, transform 0.3s ease";
+        totalPriceElement.style.color = "#FFD700"; // 金色
+        totalPriceElement.style.transform = "scale(1.1)";
+        setTimeout(() => {
+            totalPriceElement.style.color = "#fff";
+            totalPriceElement.style.transform = "scale(1)";
+        }, 300);
+
+        totalPriceElement.innerText = `RM ${total.toFixed(2)}`;
         localStorage.setItem("cart", JSON.stringify(cart));
     }
 
     cartItemsContainer.addEventListener("click", function (event) {
         const index = event.target.dataset.index;
         if (event.target.classList.contains("remove-item")) {
-            cart.splice(index, 1);
+            const itemElement = event.target.parentElement;
+            itemElement.style.transition = "opacity 0.5s ease";
+            itemElement.style.opacity = "0";
+            setTimeout(() => {
+                cart.splice(index, 1);
+                updateCartDisplay();
+            }, 500);
         } else if (event.target.classList.contains("increase")) {
             cart[index].quantity += 1;
+            buttonAnimation(event.target);
         } else if (event.target.classList.contains("decrease") && cart[index].quantity > 1) {
             cart[index].quantity -= 1;
+            buttonAnimation(event.target);
         }
         updateCartDisplay();
     });
@@ -44,10 +61,23 @@ document.addEventListener("DOMContentLoaded", function () {
             alert("购物车为空！");
             return;
         }
-        alert("结账成功！");
-        localStorage.removeItem("cart");
-        updateCartDisplay();
+        checkoutButton.style.transition = "transform 0.2s ease";
+        checkoutButton.style.transform = "scale(0.95)";
+        setTimeout(() => {
+            checkoutButton.style.transform = "scale(1)";
+            alert("结账成功！");
+            localStorage.removeItem("cart");
+            updateCartDisplay();
+        }, 200);
     });
+
+    function buttonAnimation(button) {
+        button.style.transition = "transform 0.1s ease";
+        button.style.transform = "scale(0.9)";
+        setTimeout(() => {
+            button.style.transform = "scale(1)";
+        }, 100);
+    }
 
     updateCartDisplay();
 });
