@@ -73,7 +73,9 @@ h1 {
     outline: none;
 }
 
-/* Vongola Logo 字体 & 金色闪耀效果 */
+/* ========== LOGO ========== */
+
+/* Logo 文字 */
 .logo {
     font-size: 2.5rem;
     font-family: "Vongola", sans-serif;
@@ -83,11 +85,25 @@ h1 {
     animation: gold-shine 2s infinite;
 }
 
+/* Vongola Logo 金色闪耀动画 */
 @keyframes gold-shine {
     0% { text-shadow: 0 0 10px gold; }
     50% { text-shadow: 0 0 20px orange; }
     100% { text-shadow: 0 0 10px gold; }
 }
+
+/* Logo 图片 */
+.logo-img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.logo-img:hover {
+    transform: scale(1.1);
+}
+
+
 
 /* ========== 购物车（Cart） ========== */
 
@@ -122,7 +138,6 @@ h1 {
     -webkit-text-fill-color: transparent;
 }
 
-/* 结账按钮 */
 .checkout-button {
     background: linear-gradient(90deg, black, gold);
     color: white;
