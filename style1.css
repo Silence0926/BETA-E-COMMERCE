@@ -284,32 +284,38 @@ header {
     z-index: 9999;
 }
 
-/* 导航链接 */
-.nav-links {
-    list-style: none;
+nav {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
 }
 
-.nav-links li {
-    margin: 0 15px;
-}
-
-.nav-links a {
-    color: white;
+nav a {
+    color: gold;  /* 变金色 */
     text-decoration: none;
     font-weight: bold;
+    font-size: 18px;
+    margin: 0 20px;  /* 增加间距 */
     transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: #ffcc00;
+nav a:hover {
+    color: white; /* 悬停变白色 */
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
 
-/* 搜索框 */
-.search-box {
+#search {
+    width: 200px;
+    height: 30px;
+    border: 2px solid gold;
     border-radius: 15px;
-    padding: 5px 10px;
-    border: 2px solid white;
-    background: transparent;
+    padding-left: 10px;
+    font-size: 16px;
     color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#search::placeholder {
+    color: rgba(255, 255, 255, 0.7);
 }
