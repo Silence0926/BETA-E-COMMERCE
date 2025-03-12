@@ -341,3 +341,37 @@ nav a:hover {
 .product:hover {
     transform: scale(1.05);  /* 悬停时放大 */
 }
+/* 让商品容器居中，并调整布局 */
+.products-container {
+    display: flex;
+    flex-wrap: wrap;  /* 允许换行 */
+    justify-content: center;  /* 居中对齐 */
+    gap: 20px;  /* 间距 */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 调整单个商品样式 */
+.product {
+    width: 250px;  /* 统一宽度 */
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+/* 限制商品图片大小 */
+.product img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;  /* 限制高度 */
+    object-fit: cover;  /* 保证图片不会变形 */
+}
+
+/* 让整个 main 居中 */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
