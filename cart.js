@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
         totalPriceElement.style.color = "#FFD700"; // 金色
         totalPriceElement.style.transform = "scale(1.1)";
         setTimeout(() => {
-            totalPriceElement.style.color = "#fff";
+            totalPriceElement.style.color = black;
             totalPriceElement.style.transform = "scale(1)";
         }, 300);
 
