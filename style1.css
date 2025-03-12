@@ -319,3 +319,25 @@ nav a:hover {
 #search::placeholder {
     color: rgba(255, 255, 255, 0.7);
 }
+.products-container {
+    display: flex;
+    justify-content: center;  /* 水平居中 */
+    flex-wrap: wrap;  /* 自动换行 */
+    gap: 20px;  /* 设置间距 */
+    max-width: 1200px;  /* 最大宽度 */
+    margin: 0 auto;  /* 居中 */
+    padding: 20px;
+}
+
+.product {
+    width: 250px;  /* 固定商品宽度 */
+    background: rgba(255, 255, 255, 0.1);  /* 半透明背景 */
+    border-radius: 10px;  /* 圆角 */
+    padding: 10px;
+    text-align: center;  /* 文字居中 */
+    transition: transform 0.3s ease;
+}
+
+.product:hover {
+    transform: scale(1.05);  /* 悬停时放大 */
+}
