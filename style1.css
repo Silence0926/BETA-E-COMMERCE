@@ -394,3 +394,43 @@ main {
     align-items: center;
     font-family: "Poppins", sans-serif;
 }
+/* 产品名称优化 */
+.product-name {
+    font-size: 20px; /* 放大字号 */
+    font-weight: bold; /* 加粗 */
+    text-align: center;
+    color: #FFD700; /* 金色，更符合主题 */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* 产品价格优化 */
+.product-price {
+    font-size: 22px; /* 更大字体 */
+    font-weight: bold;
+    text-align: center;
+    background: linear-gradient(to right, #ff8c00, #ff4500); /* 渐变色（橙红→深橙） */
+    -webkit-background-clip: text;
+    color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+/* 购物按钮优化 */
+.add-to-cart {
+    background: linear-gradient(to right, #007bff, #0056b3);
+    color: white;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background: linear-gradient(to right, #0056b3, #004494);
+    transform: scale(1.05);
+}
+
+.add-to-cart:active {
+    transform: scale(0.95);
+}
